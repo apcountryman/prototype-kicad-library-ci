@@ -58,4 +58,4 @@ If you are interested in contributing to `prototype-kicad-library-ci`, please [r
 libraries.
 That is, `prototype-kicad-library-ci` is licensed under the Creative Commons CC-BY-SA 4.0
 License, with the same exception used by the official KiCad libraries.
-For more information, [see the `LICENSE` file in this repository](LICENSE).
+For more information, [see the `LICENSE.md` file in this repository](LICENSE.md).
