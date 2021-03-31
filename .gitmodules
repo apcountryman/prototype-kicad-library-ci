@@ -2,3 +2,14 @@
 
 # File: .gitmodules
 # Description: Git submodules of the prototype-kicad-library-ci repository.
+
+# official libraries
+[submodule "official-libraries/kicad-symbols"]
+	path = official-libraries/kicad-symbols
+	url = ../kicad-symbols
+[submodule "official-libraries/kicad-footprints"]
+	path = official-libraries/kicad-footprints
+	url = ../kicad-footprints
+[submodule "official-libraries/kicad-packages3D"]
+	path = official-libraries/kicad-packages3D
+	url = ../kicad-packages3D
