@@ -13,3 +13,8 @@
 [submodule "official-libraries/kicad-packages3D"]
 	path = official-libraries/kicad-packages3D
 	url = ../kicad-packages3D
+
+# utilities
+[submodule "utilities/kicad-library-utils"]
+	path = utilities/kicad-library-utils
+	url = ../kicad-library-utils
