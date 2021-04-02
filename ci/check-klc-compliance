@@ -30,8 +30,10 @@ function display_help_text()
     echo "SYNOPSIS"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"
-    echo "    $mnemonic [--check-symbols]"
+    echo "    $mnemonic [--check-footprints] [--check-symbols]"
     echo "OPTIONS"
+    echo "    --check-footprints"
+    echo "        Check library footprints for KLC compliance."
     echo "    --help"
     echo "        Display this help text."
     echo "    --check-symbols"
@@ -41,7 +43,7 @@ function display_help_text()
     echo "EXAMPLES"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"
-    echo "    $mnemonic --check-symbols"
+    echo "    $mnemonic --check-footprints --check-symbols"
 }
 
 function display_version()
@@ -60,6 +62,17 @@ function check_symbols_for_klc_compliance()
     fi
 }
 
+function check_footprints_for_klc_compliance()
+{
+    local footprints; mapfile -t footprints < <( git -C "$repository" ls-files '*.kicad_mod' | xargs -r -d '\n' -I '{}' find "$repository/{}" ); readonly footprints
+
+    if [[ "${#footprints[@]}" -ne 0 ]]; then
+        if ! "$repository/utilities/kicad-library-utils/pcb/check_kicad_mod.py" -s -vv "${footprints[@]}"; then
+            abort
+        fi
+    fi
+}
+
 function main()
 {
     local -r script=$( readlink -f "$0" )
@@ -71,6 +84,11 @@ function main()
         local argument="$1"; shift
 
         case "$argument" in
+            --check-footprints)
+                if [[ -z "$check_footprints" ]]; then
+                    local -r check_footprints="check-footprints"
+                fi
+                ;;
             --help)
                 display_help_text
                 exit
@@ -94,6 +112,10 @@ function main()
                 ;;
         esac
     done
+
+    if [[ -n "$check_footprints" ]]; then
+        check_footprints_for_klc_compliance
+    fi
 
     if [[ -n "$check_symbols" ]]; then
         check_symbols_for_klc_compliance
