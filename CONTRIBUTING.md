@@ -133,6 +133,11 @@ If changes are requested, please discuss and/or address the review findings befo
 requesting a new review.
 
 # Style guide
+
+## KiCad libraries
+All KiCad library content follows the [KLC](https://klc.kicad.org/).
+
+## Other
 Formatting for all source code and content is neither automated nor documented (with the
 exception of a column limit) at this time.
 Please use a column limit of 90 for source code and content.
