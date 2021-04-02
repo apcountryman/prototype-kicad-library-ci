@@ -30,7 +30,7 @@ jobs:
             - uses: actions/checkout@v2
               with:
                   submodules: recursive
-            - name: Analyze
+            - name: Check KLC compliance
               shell: bash
               run: ./ci/check-klc-compliance --check-footprints
 
@@ -41,6 +41,6 @@ jobs:
             - uses: actions/checkout@v2
               with:
                   submodules: recursive
-            - name: Analyze
+            - name: Check KLC compliance
               shell: bash
               run: ./ci/check-klc-compliance --check-symbols
