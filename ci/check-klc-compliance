@@ -2,7 +2,7 @@
 
 # prototype-kicad-library-ci
 
-# File: ci/analyze
+# File: ci/check-klc-compliance
 # Description: prototype-kicad-library-ci repository CI KLC compliance check script.
 
 function error()
