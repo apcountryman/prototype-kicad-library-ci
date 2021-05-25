@@ -52,6 +52,7 @@ If you are interested in contributing to `prototype-kicad-library-ci`, please [r
 
 ## Authors
 - Andrew Countryman
+- Jay Lamb
 
 ## License
 `prototype-kicad-library-ci` is licensed under the same terms as the official KiCad
