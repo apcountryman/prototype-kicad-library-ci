@@ -33,6 +33,14 @@ philosophy](https://abseil.io/about/philosophy).
 `prototype-kicad-library-ci` uses the [GitHub
 flow](https://guides.github.com/introduction/flow/) workflow.
 
+## Git Config Install Instructions
+To install this repository's Git configuration, execute the `install` script located in the
+`git/config` directory.
+See the `install` script's help text for usage details.
+```shell
+./git/config/install --help
+```
+
 ## Git Hooks
 To install this repository's Git hooks, execute the `install` script located in the
 `git/hooks` directory.
