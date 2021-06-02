@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# prototype-kicad-library-ci
+
+# File: /ci/scrub-kicad-project-files
+# Description: prototype-kicad-library-ci repository KiCad project file scrubbing script.
+
+function error()
+{
+    local -r message="$1"
+
+    ( >&2 echo "$mnemonic: $message" )
+}
+
+function abort()
+{
+    if [[ "$#" -gt 0 ]]; then
+        local -r message="$1"
+
+        error "$message, aborting"
+    fi
+
+    exit 1
+}
+
+function display_help_text()
+{
+    echo "NAME"
+    echo "    $mnemonic - Ensure KiCad project file's 'update' and 'last_client' fields are empty."
+    echo "SYNOPSIS"
+    echo "    $mnemonic --help"
+    echo "    $mnemonic --version"
+    echo "OPTIONS"
+    echo "    --help"
+    echo "        Display this help text."
+    echo "    --version"
+    echo "        Display the version of this script."
+    echo "EXAMPLES"
+    echo "    $mnemonic --help"
+    echo "    $mnemonic --version"
+    echo "    $mnemonic"
+}
+
+function display_version()
+{
+    echo "$mnemonic, version $version"
+}
+
+function scrub_kicad_project_files()
+{
+    local kicad_project_files; mapfile -t kicad_project_files < <( git -C "$repository" ls-files '*.pro' | xargs -r -d '\n' -I '{}' find "$repository/{}" ); readonly kicad_project_files
+
+    if ! ( sed -E -e 's/^update=.*$/update=/' -e 's/^last_client=.*$/last_client=/' "${kicad_project_files[@]}" && git -C "$repository" diff --exit-code ); then
+        abort
+    fi
+}
+
+function main()
+{
+    local -r script=$( readlink -f "$0" )
+    local -r mnemonic=$( basename "$script" )
+    local -r config=$( dirname "$script" )
+    local -r repository=$( readlink -f "$config/../.." )
+    local -r version=$( git -C "$repository" describe --match=none --always --dirty --broken )
+
+    while [[ "$#" -gt 0 ]]; do
+        local argument="$1"; shift
+
+        case "$argument" in
+            --help)
+                display_help_text
+                exit
+                ;;
+            --version)
+                display_version
+                exit
+                ;;
+            --*)
+                ;&
+            -*)
+                abort "'$argument' is not a supported option"
+                ;;
+            *)
+                abort "'$argument' is not a valid argument"
+                ;;
+        esac
+    done
+
+    scrub_kicad_project_files
+}
+
+main "$@"
