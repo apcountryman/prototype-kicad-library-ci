@@ -52,7 +52,7 @@ function scrub_kicad_project_files()
 {
     local kicad_project_files; mapfile -t kicad_project_files < <( git -C "$repository" ls-files '*.pro' | xargs -r -d '\n' -I '{}' find "$repository/{}" ); readonly kicad_project_files
 
-    if ! ( sed -E -e 's/^update=.*$/update=/' -e 's/^last_client=.*$/last_client=/' "${kicad_project_files[@]}" && git -C "$repository" diff --exit-code ); then
+    if ! ( sed -i -E -e 's/^update=.*$/update=/' -e 's/^last_client=.*$/last_client=/' "${kicad_project_files[@]}" && git -C "$repository" diff --exit-code ); then
         abort
     fi
 }
