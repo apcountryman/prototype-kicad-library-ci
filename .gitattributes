@@ -3,5 +3,5 @@
 # File: .gitattributes
 # Description: Git attributes for the prototype-kicad-library-ci repository.
 
-# filter KiCad projects
+# scrub KiCad project files
 *.pro filter=kicad_project

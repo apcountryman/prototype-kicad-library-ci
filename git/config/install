@@ -4,7 +4,7 @@
 
 # File: git/config/install
 # Description: Git config entries install script for the prototype-kicad-library-ci
-#   repository.
+#       repository.
 
 function error()
 {
@@ -27,7 +27,8 @@ function abort()
 function display_help_text()
 {
     echo "NAME"
-    echo "    $mnemonic - Install the prototype-kicad-library-ci repository's Git config."
+    echo "    $mnemonic - Install the prototype-kicad-library-ci repository's Git config"
+    echo "        entries."
     echo "SYNOPSIS"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"

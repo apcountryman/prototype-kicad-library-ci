@@ -3,7 +3,8 @@
 # prototype-kicad-library-ci
 
 # File: /ci/scrub-kicad-project-files
-# Description: prototype-kicad-library-ci repository KiCad project file scrubbing script.
+# Description: prototype-kicad-library-ci repository CI KiCad project files scrubbing
+#       script.
 
 function error()
 {
@@ -26,7 +27,8 @@ function abort()
 function display_help_text()
 {
     echo "NAME"
-    echo "    $mnemonic - Ensure KiCad project file's 'update' and 'last_client' fields are empty."
+    echo "    $mnemonic - Ensure KiCad project file's 'update' and 'last_client' fields"
+    echo "        are empty."
     echo "SYNOPSIS"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"
