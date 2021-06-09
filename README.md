@@ -34,8 +34,8 @@ philosophy](https://abseil.io/about/philosophy).
 flow](https://guides.github.com/introduction/flow/) workflow.
 
 ## Git Config
-To install this repository's Git config entries, execute the `install` script located in the
-`git/config` directory.
+To install this repository's Git config entries, execute the `install` script located in
+the `git/config` directory.
 See the `install` script's help text for usage details.
 ```shell
 ./git/config/install --help
