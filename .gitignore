@@ -2,3 +2,6 @@
 
 # File: .gitignore
 # Description: Git ignore rules for the prototype-kicad-library-ci repository.
+
+# ignore the KiCad footprint cache
+fp-info-cache
