@@ -108,6 +108,10 @@ function main()
         local argument="$1"; shift
 
         case "$argument" in
+            --all)
+                selected_hooks=( "${supported_hooks[@]}" )
+                break
+                ;;
             --help)
                 display_help_text
                 exit
@@ -115,10 +119,6 @@ function main()
             --version)
                 display_version
                 exit
-                ;;
-            --all)
-                selected_hooks=( "${supported_hooks[@]}" )
-                break
                 ;;
             --*)
                 ;&
