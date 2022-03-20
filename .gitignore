@@ -5,3 +5,6 @@
 
 # ignore the KiCad footprint cache
 fp-info-cache
+
+# ignore project backups
+*-backups*
