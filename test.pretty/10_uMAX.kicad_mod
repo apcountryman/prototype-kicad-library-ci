@@ -39,7 +39,7 @@
   (pad "8" smd rect (at 2.14 0) (size 1.4 0.28) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 3559e287-424e-4397-b080-77c7ba6f395b))
   (pad "9" smd rect (at 2.14 -0.5) (size 1.4 0.28) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp e6521bef-4109-48f7-8b88-4121b0468927))
   (pad "10" smd rect (at 2.14 -1) (size 1.4 0.28) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 646d9e91-59b4-4865-a2fc-29780ed32563))
-  (model "${KISYS3DMOD}/test.3dshapes/10_uMAX.wrl"
+  (model "${KICAD6_3DMODEL_DIR}/test.3dshapes/10_uMAX.wrl"
     (offset (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
