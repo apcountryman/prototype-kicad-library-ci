@@ -5,3 +5,9 @@
 
 # ignore the KiCad footprint cache
 fp-info-cache
+
+# ignore project backups
+*-backups/
+
+# ignore project last used settings
+*.kicad_prl
